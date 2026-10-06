@@ -15,7 +15,10 @@ def load_dataset(file_path):
     print(df.dtypes)
 
     print("\nFirst 5 Rows:")
-    print(df.head())
+    print(df.head())    
+
+    print("\nBasic Statistics:")
+    print(df.describe())
 
     return df
 
