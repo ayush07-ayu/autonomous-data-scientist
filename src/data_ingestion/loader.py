@@ -11,6 +11,7 @@ def load_dataset(file_path):
     print("\nColumn Names:")
     print(df.columns.tolist())
 
+    
     print("\nData Types:")
     print(df.dtypes)
 
