@@ -27,3 +27,29 @@ def profile_dataset(df):
 
     print("\nCategorical Columns:")
     print(df.select_dtypes(include="object").columns.tolist())
+
+    print("\nNumeric Statistics:")
+    print(df.select_dtypes(include="number").describe())
+
+    print("\nCategorical Value Counts:")
+
+    categorical_columns = df.select_dtypes(include="object").columns
+
+    for column in categorical_columns:
+     print(f"\n{column}:")
+     print(df[column].value_counts().head(10))
+
+     print("\nPotential Date Columns:")
+
+    for column in df.columns:
+     if "date" in column.lower():
+          print(column)
+
+    print("\n--- Profiling Summary ---")
+
+    print("Rows:", len(df))
+    print("Columns:", len(df.columns))
+    print("Missing Values:", df.isnull().sum().sum())
+    print("Duplicate Rows:", df.duplicated().sum())
+    print("Numeric Columns:", len(df.select_dtypes(include="number").columns))
+    print("Categorical Columns:", len(df.select_dtypes(include="object").columns))
