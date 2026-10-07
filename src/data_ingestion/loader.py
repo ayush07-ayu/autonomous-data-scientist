@@ -1,5 +1,5 @@
 import pandas as pd
-
+from src.profiling.profiler import profile_dataset
 
 def load_dataset(file_path):
     df = pd.read_csv(file_path)
@@ -19,7 +19,8 @@ def load_dataset(file_path):
 
     print("\nBasic Statistics:")
     print(df.describe())
-
+    
+    profile_dataset(df)
     return df
 
 
